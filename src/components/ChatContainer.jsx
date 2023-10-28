@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-// import ChatInput from "./ChatInput";
+import ChatInput from "./ChatInput";
 import Logout from "./Logout";
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { sendMessageRoute, recieveMessageRoute } from "../utils/APIRoutes";
 
@@ -91,7 +91,7 @@ a();
       <div className="chat-messages">
         {messages.map((message) => {
           return (
-            <div ref={scrollRef} >
+            <div ref={scrollRef} key={uuidv4()}>
               <div
                 className={`message ${
                   message.fromSelf ? "sended" : "recieved"
@@ -105,7 +105,7 @@ a();
           );
         })}
       </div>
-      {/* <ChatInput handleSendMsg={handleSendMsg} /> */}
+      <ChatInput handleSendMsg={handleSendMsg} />
     </Container>
   );
 }

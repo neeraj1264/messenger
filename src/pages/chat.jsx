@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { io } from "socket.io-client";
+import { io } from "socket.io-client";
 import styled from "styled-components";
 import { allUsersRoute, host } from "../utils/APIRoutes";
 import ChatContainer from "../components/ChatContainer";
@@ -27,12 +27,12 @@ export default function Chat() {
     }}
     a();
   }, []);
-//   useEffect(() => {
-//     if (currentUser) {
-//       socket.current = io(host);
-//       socket.current.emit("add-user", currentUser._id);
-//     }
-//   }, [currentUser]);
+  useEffect(() => {
+    if (currentUser) {
+      socket.current = io(host);
+      socket.current.emit("add-user", currentUser._id);
+    }
+  }, [currentUser]);
 
   useEffect( () => {
     const b = async () => {
