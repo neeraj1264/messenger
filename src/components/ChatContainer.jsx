@@ -171,13 +171,14 @@ const Container = styled.div`
     .sended {
       justify-content: flex-end;
       .content {
-        background-color: #4f04ff21;
-      }
+        background-color: #486249; /* Initial background color */
+        transition: background-color 0.5s ease;      }
     }
     .recieved {
       justify-content: flex-start;
       .content {
-        background-color: #9900ff20;
+        background-color: #486249; /* Initial background color */
+  transition: background-color 0.5s ease;
       }
     }
   }

@@ -73,7 +73,8 @@ const Container = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background-color: #131324;
+  background-color: #486249; 
+  transition: background-color 0.5s ease;
   .container {
     height: 85vh;
     width: 85vw;
