@@ -5,12 +5,15 @@ import Logout from "./Logout";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { sendMessageRoute, recieveMessageRoute } from "../utils/APIRoutes";
+import { Howl, Howler } from "howler";
 
 export default function ChatContainer({ currentChat, socket }) {
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
-
+  const audio = new Howl({
+    src: ["../assets/ring.mp3"], // Replace with the actual path to your audio file
+  });
   useEffect( () => {
     const a = async () => {
     const data = await JSON.parse(
@@ -60,6 +63,7 @@ a();
     if (socket.current) {
       socket.current.on("msg-recieve", (msg) => {
         setArrivalMessage({ fromSelf: false, message: msg });
+        audio.play();
       });
     }
   }, []);
