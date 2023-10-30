@@ -16,8 +16,8 @@ export default function Register()  {
       const navigate = useNavigate();
 
       useEffect(() => {
-        // if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
-      if (localStorage.getItem("mychat")) {
+        if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+      // if (localStorage.getItem("mychat")) {
 
           navigate("/");
         }
@@ -76,8 +76,8 @@ export default function Register()  {
             toast.error(data.msg, toastOptions);
           }
           if (data.status === true) {
-            // localStorage.setItem( process.env.REACT_APP_LOCALHOST_KEY, JSON.stringify(data.user)
-            localStorage.setItem( "mychat", JSON.stringify(data.user)
+            localStorage.setItem( process.env.REACT_APP_LOCALHOST_KEY, JSON.stringify(data.user)
+            // localStorage.setItem( "mychat", JSON.stringify(data.user)
             );
             navigate("/");
           }

@@ -16,14 +16,14 @@ export default function Chat() {
   const [currentUser, setCurrentUser] = useState(undefined);
   useEffect( () => {
     const a = async () => {
-    // if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {  
-      if (!localStorage.getItem("mychat")) {
+    if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {  
+      // if (!localStorage.getItem("mychat")) {
       navigate("/login");
     } else {
       setCurrentUser(
         await JSON.parse(
-          // localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
-          localStorage.getItem("mychat")
+          localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+          // localStorage.getItem("mychat")
         )
       );
     }}
